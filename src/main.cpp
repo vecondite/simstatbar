@@ -4,6 +4,7 @@
 #include <chrono>
 #include <thread>
 #include <array>
+#include <vector>
 #include "mini/ini.h"
 
 struct Block{
@@ -97,7 +98,7 @@ int main(){
                 block.nextTime = currentTime + block.interval;
                 block.output = runCmd(block.command);
             }
-            outLine += (i==(blocks.size()-1)) ? block.output : block.output + delimiter;
+            outLine += (i==(statusBlocks.size()-1)) ? block.output : block.output + delimiter;
         }
         XStoreName(display, root, outLine.c_str());
         XFlush(display);
