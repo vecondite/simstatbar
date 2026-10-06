@@ -33,6 +33,13 @@ std::string trim(const std::string& input){
     return input.substr(first, (last-first+1));
 }
 
+std::string rQuotes(const std::string& input){
+    size_t first = input.find_first_not_of("'\"");
+    if(first == std::string::npos) return input;
+    size_t last = input.find_last_not_of("'\"");
+    return input.substr(first, (last-first+1));
+}
+
 std::string runCmd(const std::string& cmd){
     FILE* pipe = popen(cmd.c_str(), "r");
     if(!pipe){
@@ -70,14 +77,14 @@ int main(){
         return 1;
     }
 
-    delimiter = ini["settings"]["delimiter"];
+    delimiter = rQuotes(ini["settings"]["delimiter"]);
     std::vector<std::string> blocks = split(ini["settings"]["blocks"], ",");
 
     for(std::string sectName : blocks){
         mINI::INIMap<std::string>& values = ini[trim(sectName)];
         Block cb;
-        cb.interval = std::stol(values["interval"]);
-        cb.command = values["command"];
+        cb.interval = std::stol(rQuotes(values["interval"]));
+        cb.command = rQuotes(values["command"]);
         cb.nextTime = 0;
         statusBlocks.push_back(cb);
     }
