@@ -6,16 +6,16 @@ A simple async status bar runner (like dwmblocks!)
 > Example config:
 ```ini
 [settings]
-delimiter = | 
-blocks = date, date2
+delimiter = ' | ' 
+blocks = memory, date
 
 [date]
 interval = 1000
 command = "date"
 
-[date2]
+[memory]
 interval = 5000
-command = "date"
+command = "~/scripts/memory.sh"
 ```
 
 > Build:
