@@ -1,5 +1,7 @@
 # simstatbar
-A (WIP) simple status bar runner (like dwmblocks!)
+A (WIP) simple async status bar runner (like dwmblocks!)
+
+> Config location: ```~/.config/simstatbar/config.ini```
 
 > Example config:
 ```ini
@@ -14,4 +16,9 @@ command = "date"
 [date2]
 interval = 5000
 command = "date"
+```
+
+> Build:
+```sh
+mkdir -p build && g++ -std=c++17 -Wall -Wextra -O2 src/main.cpp -o build/main -lX11 -pthread && ./build/main
 ```
