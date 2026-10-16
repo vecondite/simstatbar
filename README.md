@@ -1,5 +1,5 @@
 # simstatbar
-A (WIP) simple async status bar runner (like dwmblocks!)
+A simple async status bar runner (like dwmblocks!)
 
 > Config location: ```~/.config/simstatbar/config.ini```
 
