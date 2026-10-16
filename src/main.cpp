@@ -9,6 +9,7 @@
 #include <functional>
 #include <string_view>
 #include <cstdlib>
+#include <cstdio>
 #include "inirw/inirw.h"
 
 struct Block{
