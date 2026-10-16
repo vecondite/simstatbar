@@ -20,5 +20,5 @@ command = "date"
 
 > Build:
 ```sh
-mkdir -p build && g++ -std=c++17 -Wall -Wextra -O2 src/main.cpp -o build/main -lX11 -pthread && ./build/main
+make && sudo make install
 ```
